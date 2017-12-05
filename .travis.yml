@@ -1,0 +1,6 @@
+# https://travis-ci.org/solus-impar/advent-of-code
+language: python
+python:
+    - 3.6
+script:
+    - python3 -m pytest

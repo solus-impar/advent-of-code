@@ -1,7 +1,7 @@
 """Day 1 - Advent of Code 2017"""
 
 
-def inverse_captcha(nums):
+def inverse_captcha(nums, match_around=False):
     """Day 1: Inverse Captcha http://adventofcode.com/2017/day/1
 
     Args:
@@ -16,11 +16,18 @@ def inverse_captcha(nums):
 
     sums = 0
 
-    for i in range(len(nums) - 1):
-        if nums[i] == nums[i + 1]:
-            sums += int(nums[i])
+    if match_around:
+        diff = int(len(nums) / 2)
+    else:
+        diff = 1
 
-    if nums[-1] == nums[0]:
-        sums += int(nums[-1])
+    for i, j in enumerate(nums):
+        if i + diff >= len(nums):
+            ix = i + diff - len(nums)
+        else:
+            ix = i + diff
+
+        if j == nums[ix]:
+            sums += int(nums[ix])
 
     return sums
