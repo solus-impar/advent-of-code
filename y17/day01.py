@@ -1,9 +1,8 @@
-"""Day 1 - Advent of Code 2017"""
+"""Advent of Code 2017 Day 1: Inverse Captcha"""
 
 
 def inverse_captcha(nums, match_around=False):
-    """Day 1: Inverse Captcha http://adventofcode.com/2017/day/1
-
+    """
     Args:
         nums (str): String of digits.
 
