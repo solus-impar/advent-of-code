@@ -1,10 +1,10 @@
 """Advent of Code 2017 Day 2: Corruption Checksum"""
 
 
-def corruption_checksum(A):
+def corruption_checksum(sheet, divide=False):
     """
     Args:
-        A (numpy.matrix): The spreadsheet as a NumPy matrix.
+        sheet (numpy.matrix): The spreadsheet as a NumPy matrix.
 
     Returns:
         checksum (int): Sum of each row's difference in max and min.
@@ -15,7 +15,14 @@ def corruption_checksum(A):
 
     checksum = 0
 
-    for row in A:
-        checksum += int(row.max() - row.min())
+    for row in sheet:
+        if divide:
+            for i in row:
+                for j in row:
+                    if i != j and i % j == 0:
+                        checksum += int(i / j)
+
+        else:
+            checksum += int(row.max() - row.min())
 
     return checksum
